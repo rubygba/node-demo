@@ -4,7 +4,9 @@
   "description": "the first node programme of gba.",
   "main": "starter.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "markdown": "^0.5.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

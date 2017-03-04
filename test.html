@@ -1,0 +1,91 @@
+<hr/>
+
+<hr/>
+
+<h3>eTouch是一个移动端无依赖js手势库</h3>
+
+<p>众所周知，原生js的touch事件不能很好的识别移动端手势，在日常开发中往往依赖hammer，或者使用zepto、vue等框架的touch插件。</p>
+
+<p>但即便小如hammer，很多手势日常中也不必使用。想要自己造个轮子、或者是更小的手势库？不妨看看MeCKodo巨巨的eTouch。</p>
+
+<p>eTouch源码不到250行，使用微积分算法识别手势路径，应用于最常见的点击、上下左右滑动。</p>
+
+<h3>demo</h3>
+
+<p><a href="http://meckodo.github.io/eTouch/clock.html">eTouch演示和说明</a></p>
+
+<h3>eTouch使用</h3>
+
+<p>事件代理的方式：</p>
+
+<p><code></code>` html
+&lt;body&gt;
+  &lt;div id=&quot;pox&quot;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.1&lt;/li&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.2&lt;/li&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;</p>
+
+<p>  &lt;script type=&quot;text/javascript&quot;&gt;
+    //事件代理 !!!!!第一个参数仅支持id!!!!!!
+    //支持复杂选择器代理
+    etouch(&#39;#pox&#39;,&#39;ul li&#39;,function(e,touch) {
+      e.clock = true;  //给div加锁,完全阻止默认事件</p>
+
+<pre><code>  console.log(&#39;点击（tap）&#39;);
+  console.log(touch);
+}).on(&#39;swiper&#39;,function(e,touch) {
+  console.log(&#39;实时获取滑动&#39;);
+}).on(&#39;up&#39;,function(e,touch) {
+  console.log(&#39;上滑回调&#39;);
+}).on(&#39;down&#39;,function(e,touch) {
+  console.log(&#39;下滑回调&#39;);
+}).on(&#39;left&#39;,function(e,touch) {
+  console.log(&#39;左滑回调&#39;);
+}).on(&#39;right&#39;,function(e,touch) {
+  console.log(&#39;右滑回调&#39;);
+});</code></pre>
+
+<p>  &lt;/script&gt;
+&lt;/body&gt;
+<code></code>`</p>
+
+<p>批量绑定的方式：</p>
+
+<p><code></code>` html
+&lt;body&gt;
+  &lt;div id=&quot;pox&quot;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.1&lt;/li&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.2&lt;/li&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;</p>
+
+<p>  &lt;script&gt;
+    // 直接事件批量绑定
+    etouch(&#39;li&#39;, function(e,touch) {
+      console.log(this,e,touch);
+    }).on(&#39;left&#39;,function() {})
+    // e为事件对象，touch为触摸返回对象
+  &lt;/script&gt;
+&lt;/body&gt;
+<code></code>`</p>
+
+<p>注意事项：</p>
+
+<ul><li>支持AMD和CMD加载</li><li><code>e.clock = true</code> 给div加锁，阻止默认事件</li><li>事件代理第一个参数仅支持id作为参数</li></ul>
+
+<h3>源码分析</h3>
+
+<p>复杂选择器实现： querySelector和遍历</p>
+
+<h3>项目中的应用</h3>
+
+<p><a href="http://meckodo.github.io/eTouch/list.html">滑动删除选项</a></p>
+
+<hr/>
+
+<ol><li>是什么，解决什么问题</li><li>什么样子，预览</li><li>如何使用</li><li>如何工作的（源码分析，基本流程）</li><li>总结，收获</li></ol>
