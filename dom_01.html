@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>div1</div>
+  <span>spannnnnnnnnnnnn</span>
+  <p>ppp</p>
+  <div>div2</div>
+  <button type="button" name="button" onclick="javascript:hidediv2();">hide div2</button>
+
+<script type="text/javascript">
+  var obody = document.getElementsByTagName('body')[0]
+  var children = obody.childNodes
+
+  function hidediv2() {
+    var count = 0
+    for (var i = 0; i < children.length; i++) {
+      console.log(children[i]);
+      if (children[i].nodeName === 'DIV') {
+        count++
+        if (count === 2) {
+          children[i].style.display = 'none'
+        }
+      }
+    }
+  }
+</script>
+</body>
+</html>

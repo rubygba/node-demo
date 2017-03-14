@@ -2,8 +2,8 @@ var markdown = require('markdown')
 var fs = require('fs')
 var path = require('path')
 
-var file = path.join(process.cwd(), '/test.md')
-var file2 = path.join(process.cwd(), '/test.html')
+var file = path.join(process.cwd(), '/md_in.md')
+var file2 = path.join(process.cwd(), '/md_out.html')
 
 function loadOrInitFile(file, cb) {
   fs.exists(file, (exists) => {
